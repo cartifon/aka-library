@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "aka-library"
+    }
+  },
+  "defaultProject": "aka-library",
+  "cli": {
+    "analytics": false
+  }
 }

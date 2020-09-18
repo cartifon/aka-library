@@ -1,0 +1,26 @@
+<div class="library-container">
+  <div class='row'>
+    <div class='col-md-4'>
+      <div class="card">
+        <div class="card-header">
+          Libraries
+        </div>
+        <div class="card-body" *ngIf="libraries$ | async as libraries">
+          <div class="list-group">
+            <button class="list-group-item" *ngFor="let library of libraries" (click)='onSelected(library.libraryId )'
+              [ngClass]="{'active': library?.libraryId === (selectedLibrary$ | async)?.libraryId}">
+              {{ library.name }} - {{library.city}}
+          </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='col-md-8'>
+      <library-book></library-book>
+    </div>
+  </div>
+</div>
+
+<div class="alert alert-danger" *ngIf="errorMessage$ | async as errorMessage">
+  {{errorMessage}}
+</div>

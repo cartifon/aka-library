@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://aka-library-api.azurewebsites.net/api/'
+  apiUrl: 'https://aka-library-api.azurewebsites.net/api'
 };
 
 /*

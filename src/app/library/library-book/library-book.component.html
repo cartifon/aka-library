@@ -1,0 +1,19 @@
+<div class="card" *ngIf="selectedLibrary$ | async">
+  <div class="card-header">
+    {{pageTitle$ | async}}
+  </div>
+
+  <div class="card-body">
+    <ul class="list-group">
+      <ng-container *ngFor="let book of books$ | async">
+        <li class="list-group-item">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{book.title}}</h5>
+            <small>isbn: {{book.isbn}}</small>
+          </div>
+        </li>
+      </ng-container>
+
+    </ul>
+  </div>
+</div>
