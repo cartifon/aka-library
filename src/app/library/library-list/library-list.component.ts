@@ -11,7 +11,6 @@ import { EMPTY, Subject } from 'rxjs';
 })
 export class LibraryListComponent implements OnInit {
 
-
   private errorMessageSubject = new Subject<string>();
   errorMessage$ = this.errorMessageSubject.asObservable();
 

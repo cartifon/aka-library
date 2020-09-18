@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { EMPTY, Subject } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { MemberService } from '../services/member.service';
 
 @Component({
   selector: 'app-member-list',
@@ -7,7 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MemberListComponent implements OnInit {
 
-  constructor() { }
+  private errorMessageSubject = new Subject<string>();
+  errorMessage$ = this.errorMessageSubject.asObservable();
+
+  members$ = this._memberService.members$
+    .pipe(
+      catchError(err => {
+        this.errorMessageSubject.next(err);
+        return EMPTY;
+      })
+    );
+
+  constructor(private _memberService: MemberService) { }
 
   ngOnInit(): void {
   }
